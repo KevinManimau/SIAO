@@ -15,11 +15,11 @@ class Cabang extends Controller{
     {
         if($this->model('Cabang_model')->tambahDataCabang($_POST) > 0){
             Flasher::setFlash('Berhasil','ditambahkan','success','fa fa-check');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }else{
             Flasher::setFlash('Gagal','ditambahkan','danger','icon-close');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }
     }
@@ -27,11 +27,11 @@ class Cabang extends Controller{
     {
         if($this->model('Cabang_model')->hapusDatabyID($id) > 0){
             Flasher::setFlash('Berhasil','dihapus','secondary','fa fa-trash');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }else{
             Flasher::setFlash('Gagal','ditambahkan','danger','icon-close');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }
     }
@@ -43,11 +43,11 @@ class Cabang extends Controller{
     {
         if($this->model('Cabang_model')->ubahDataCabang($_POST) > 0){
             Flasher::setFlash('Berhasil','diubah','success','fa fa-check');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }else{
             Flasher::setFlash('Gagal','diubah','danger','icon-close');
-            header('Location: ' . BASEURL . 'cabang');
+            header('Location: ' . BASEURL . 'Cabang');
             exit;
         }
     }

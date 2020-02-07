@@ -8,7 +8,7 @@
 		    <h4 class="page-title">KANTOR CABANG / PEMBANTU</h4>
         </div>
         <div class="col-sm-3 text-right">
-        <button type="button" class="btnadd align-right btn btn-primary waves-effect waves-light tampilModalTambahCabang" data-toggle="modal" data-target="#DataModels"><i class="fa fa-plus mr-3"></i>Tambah Cabang</button>
+        <button type="button" class="btnadd align-right btn btn-primary waves-effect waves-light tampilModalTambahCabang" data-toggle="modal" data-target="#DataModelsCabang"><i class="fa fa-plus mr-3"></i>Tambah Cabang</button>
         </div>
      </div>
      <div class="row">
@@ -47,9 +47,9 @@
                         <td><?= $cbg['status'];?></td>
                         <td><?= $cbg['jabatan_cab'];?></td>
                         <td>
-                        <a href="<?=BASEURL;?>cabang/detail/<?=$cbg['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
-                        <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditCabang" data-toggle="modal" data-target="#DataModels" data-id="<?=$cbg['id'];?>"><i class="fa fa-edit"></i></button>
-                        <a onclick="return confirm('Yakin Ingin Menghapus?')" href="<?=BASEURL;?>cabang/hapus/<?=$cbg['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="<?=BASEURL;?>Cabang/detail/<?=$cbg['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
+                        <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditCabang" data-toggle="modal" data-target="#DataModelsCabang" data-id="<?=$cbg['id'];?>"><i class="fa fa-edit"></i></button>
+                        <a onclick="return confirm('Yakin Ingin Menghapus?')" href="<?=BASEURL;?>Cabang/hapus/<?=$cbg['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         
                         </td>
                     </tr>
@@ -75,8 +75,8 @@
 		  <div class="overlay toggle-menu"></div>
     <!--end overlay-->
     
-    <!-- Modals Tambah -->
-    <div class="modal fade" id="DataModels">
+    <!-- Modals -->
+    <div class="modal fade" id="DataModelsCabang">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content animated lightSpeedIn">
                       <div class="modal-header">
@@ -86,7 +86,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                          <form action="<?=BASEURL?>cabang/tambah" method="post">
+                          <form action="<?=BASEURL?>Cabang/tambah" method="post">
                           <input type="hidden" name="id" id="id">
                              <div class="form-group">
                                <label for="nrp">NRP</label>

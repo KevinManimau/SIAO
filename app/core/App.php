@@ -10,12 +10,12 @@ class App{
         // var_dump($url);
 
         //controller
-        if(file_exists('../app/controllers/' . $url[0] . '.php')){
+        if(is_file('../app/controllers/' . $url[0] . '.php')){
             $this->controller = $url[0];
             unset($url[0]);
             // var_dump($url);            
         }else{
-
+            $this->controller = 'Home';
         }
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;

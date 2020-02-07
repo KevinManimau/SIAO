@@ -8,7 +8,7 @@
 		    <h4 class="page-title">MANAGER</h4>
         </div>
         <div class="col-sm-3 text-right">
-        <button type="button" class="btnadd align-right btn btn-primary waves-effect waves-light tampilModalTambahManager" data-toggle="modal" data-target="#DataModels"><i class="fa fa-plus mr-3"></i>Tambah Manager</button>
+        <button type="button" class="btnadd align-right btn btn-primary waves-effect waves-light tampilModalTambahManager" data-toggle="modal" data-target="#DataModelsManager"><i class="fa fa-plus mr-3"></i>Tambah Manager</button>
         </div>
      </div>
      <div class="row">
@@ -48,9 +48,9 @@
                     <td><?=$i;?></td>
                     <td><?=$mgr['no_pintar']?></td>
                     <td><?=$mgr['nama']?></td>
-                    <td><img src="<?=BASEURL;?>assets/images/company/nita/anggota/<?=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td>
+                    <td><img src="<?=BASEURL;?>assets/images/company/Nita/anggota/<?=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td>
                     <td><?=$mgr['gender']?></td>
-                    <td><?=$mgr['telp/hp']?></td>
+                    <td><?=$mgr['telp']?></td>
                     <td>
                         <span class="badge badge-primary"><?=$mgr['username']?></span><br>
                         <span class="badge badge-primary mt-2"><?=$mgr['password']?></span>
@@ -59,7 +59,7 @@
                
                     <td>
                     <a href="<?=BASEURL;?>anggota/detail/<?=$mgr['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
-                    <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModels"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModelsManager"><i class="fa fa-edit"></i></button>
                         <a href="<?=BASEURL;?>cabang/hapus/<?=$mgr['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
@@ -90,7 +90,7 @@
     <!--end overlay-->
     
     <!-- Modals Tambah -->
-    <div class="modal fade" id="DataModels">
+    <div class="modal fade" id="DataModelsManager">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content animated lightSpeedIn">
                       <div class="modal-header">
@@ -106,22 +106,22 @@
                             <h4>BIODATA</h4>
                             
                              <div class="form-group">
-                               <label for="nrp">NO.PINTAR</label>
-                               <input type="text" class="form-control" name="nrp" id="nrp" placeholder="Enter NO Pintar">
+                               <label for="nopintar">NO.PINTAR</label>
+                               <input type="text" class="form-control" name="nopintar" id="nopintar" placeholder="Enter NO Pintar">
                              </div>
                              <div class="form-group">
                                <label for="nama">NAMA MANAGER</label>
                                <input type="text" class="form-control" name="nama" id="nama" placeholder="Enter Nama">
                              </div>
                              <div class="form-group">
-                             <div class="demo-heading">GENDER</div>
+                             <label>GENDER</label><br>
                                 <div class="icheck-material-primary icheck-inline">
-                                      <input type="radio" id="inline-radio-primary" name="stat" value="laki" checked/>
-                                      <label for="inline-radio-primary">Laki-Laki</label>
+                                      <input type="radio" id="laki-laki" name="gender" value="laki" checked/>
+                                      <label for="laki-laki">Laki-Laki</label>
                                     </div><br>
                                     <div class="icheck-material-info icheck-inline">
-                                      <input type="radio" id="inline-radio-info" name="stat" value="perempuan"/>
-                                      <label for="inline-radio-info">Perempuan</label>
+                                      <input type="radio" id="perempuan" name="gender" value="perem"/>
+                                      <label for="perempuan">Perempuan</label>
                                     </div>
                              </div>
                              <div class="form-group">
@@ -132,23 +132,19 @@
                               <div class="input-group-prepend">
                                 <label class="input-group-text" for="cabang">Cabang</label>
                               </div>
-                              <select class="custom-select cabang" id="cabang">
+                              <select class="custom-select cabang" id="cabang" name="cabang">
                                 <option selected>Choose...</option>
-                                <script>
-                                while
-                                </script>
-                    
+                                <?php foreach($data['cbg'] as $cbg):?>
+                                <option value="<?=$cbg['id']?>"><?=$cbg['status']?> <?=$cbg['nama_cab']?></option>
+                                <?php endforeach;?>
                               </select>
-                            </div>
-                                    <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">Foto</span>
-                          </div>
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
-                          </div>
-                        </div>
+                              </div>
+                              <label>Foto</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="file" id="image" name="image">
+                              </div>
+                          
+                       
                             </div>
                             <div class="col-lg-6">
                             <h4>LOGIN</h4>

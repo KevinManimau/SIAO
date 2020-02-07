@@ -25,7 +25,9 @@ class Cabang_model {
         }elseif($data['stat']=="kcp"){
             $radio = 'KCP';
         }else{
-            header('Location:'.BASEURL.'cabang');
+            Flasher::setFlash('Gagal','ditambahkan','danger','fa fa-check');
+            header('Location:'.BASEURL.'Cabang');
+            exit;
         }
 
         if($data['jabatan'] == 'ass'){
@@ -38,10 +40,12 @@ class Cabang_model {
         }elseif($data['jabatan'] == 'AO'){
         $jabatan='AO';
         }else{
-            header('Location:'.BASEURL.'cabang');
+            Flasher::setFlash('Gagal','ditambahkan','danger','fa fa-check');
+            header('Location:'.BASEURL.'Cabang');
+            exit;
         }
        
-        $query = "INSERT INTO $this->table VALUES('', :nrp, :nama, :stat, :jabatan)";
+        $query = "INSERT INTO ". $this->table ." (nrp,nama_cab,status,jabatan_cab) VALUES(:nrp, :nama, :stat, :jabatan)";
         
         $this->db->query($query);
         $this->db->bind('nrp',$data['nrp']);
