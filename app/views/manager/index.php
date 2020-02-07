@@ -60,7 +60,7 @@
                     <td>
                     <a href="<?=BASEURL;?>anggota/detail/<?=$mgr['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
                     <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModelsManager"><i class="fa fa-edit"></i></button>
-                        <a href="<?=BASEURL;?>cabang/hapus/<?=$mgr['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    <a href="<?=BASEURL;?>Manager/hapus/<?=$mgr['id_manager'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php $i++;?>

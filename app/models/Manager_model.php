@@ -2,7 +2,6 @@
 
 class Manager_model {
     private $table = 'manager';
-    private $table2 = 'user';
     private $db;
 
     public function __construct(){
@@ -17,6 +16,12 @@ class Manager_model {
                         INNER JOIN cabang
                         ON manager.id_cabang=cabang.id');
         return $this->db->resultSet();
+    }
+    public function getManagerbyId($id){
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE id=:id');
+        $this->db->bind('id', $id);
+        
+        return $this->db->single();
     }
 
     public function tambahDataManager($data,$user){

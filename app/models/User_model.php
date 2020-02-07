@@ -36,4 +36,11 @@ class User_model {
         }
         
     }
+    public function hapusDatabyID($id){
+        $this->db->query('DELETE FROM '. $this->table .' WHERE id=:id');
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

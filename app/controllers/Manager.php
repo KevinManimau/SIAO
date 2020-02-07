@@ -37,12 +37,34 @@ class Manager extends Controller{
                 exit;
             }
         }else{
-            Flasher::setFlash('Gagal','ditambahkan','danger','icon-close');
+            Flasher::setFlash('Gagal','ditambahkan, Mohon Melengkapi Data Pada Form','danger','icon-close');
             header('Location: ' . BASEURL . 'Manager');
             exit;
         }
     }
     public function getAllCabang(){
         echo json_encode($this->model('Cabang_model')->getAllCabang());
+    }
+    public function hapus($id)
+    {
+        $mgr = $this->model('Manager_model')->getManagerbyId($id);
+        $userid = $mgr['id_user'];
+        // var_dump($userid);
+        if($this->model('User_model')->hapusDatabyID($userid) > 0){
+            if($this->model('Manager_model')->hapusDatabyID($id) > 0){
+                Flasher::setFlash('Berhasil','dihapus','secondary','fa fa-trash');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }else{
+                Flasher::setFlash('Gagal','dihapus','danger','icon-close');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }
+        }else{
+            Flasher::setFlash('Gagal','dihapus','danger','icon-close');
+            header('Location: ' . BASEURL . 'Manager');
+            exit;
+        }
+        
     }
 }
