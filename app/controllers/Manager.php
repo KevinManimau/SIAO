@@ -26,7 +26,7 @@ class Manager extends Controller{
                     exit;
                 }
                 else{
-                    Flasher::setFlash('Gagal','ditambahkan','danger','icon-close');
+                    Flasher::setFlash('Gagal','ditambahkan, Nama Manager Sudah Ada','danger','icon-close');
                     header('Location: ' . BASEURL . 'Manager');
                     exit;
                 }

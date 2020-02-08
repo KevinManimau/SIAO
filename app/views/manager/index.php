@@ -52,13 +52,13 @@
                     <td><?=$mgr['gender']?></td>
                     <td><?=$mgr['telp']?></td>
                     <td>
-                        <span class="badge badge-primary"><?=$mgr['username']?></span><br>
+                        <span class="badge badge-primary"><?=$mgr['username']?></span><br>/<br>
                         <span class="badge badge-primary mt-2"><?=$mgr['password']?></span>
                     </td>
                     <td><?=$mgr['nama_cab']?></td>
                
                     <td>
-                    <a href="<?=BASEURL;?>anggota/detail/<?=$mgr['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
+                    <a href="<?=BASEURL;?>Manager/detail/<?=$mgr['id_manager'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
                     <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModelsManager"><i class="fa fa-edit"></i></button>
                     <a href="<?=BASEURL;?>Manager/hapus/<?=$mgr['id_manager'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>

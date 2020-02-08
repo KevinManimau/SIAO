@@ -51,27 +51,104 @@
            
             <li class="menunav">
                 <a class="">
-                    <i class="zmdi zmdi-view-dashboard" aria-hidden="true"></i>
+                    <i class="fa fa-file" aria-hidden="true"></i>
                     <span class="title">Laporan</span>
                     <span class="arrow"></span>
                 </a>
                 <ul>
                 <li class="">
                 <a href="javascript:;" class="">
-                    <i class="zmdi zmdi-view-dashboard" aria-hidden="true"></i>
+                   
                     <span class="title">Laporan Aktifitas</span>
                 </a>
             </li>
                 <li class="">
                 <a href="javascript:;" class="">
-                    <i class="zmdi zmdi-view-dashboard" aria-hidden="true"></i>
+                   
                     <span class="title">Laporan Kendaraan</span>
                 </a>
             </li>
             <li class="">
                 <a href="javascript:;" class="">
-                    <i class="zmdi zmdi-view-dashboard" aria-hidden="true"></i>
+                 
                     <span class="title">Laporan AO</span>
+                </a>
+            </li>
+                </ul>
+            </li>
+            <li class="menunav">
+                <a class="">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span class="title">Recovery</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <span class="title">Trash</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <span class="title">Cabang</span>
+                </a>
+            </li>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <span class="title">Manager</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="javascript:;" class="">
+                    <span class="title">AO</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="javascript:;" class="">
+                    <span class="title">Transaksi</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="javascript:;" class="">
+                    <span class="title">Laporan</span>
+                </a>
+            </li>
+                </ul>
+            </li>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    <span class="title">Backup Data</span>
+                </a>
+            </li>
+                </ul>
+            </li>
+            <li class="menunav">
+                <a class="">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="title">Help</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    <span class="title">How To Use ?</span>
+                </a>
+            </li>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-reply" aria-hidden="true"></i>
+                    <span class="title">FAQ</span>
+                </a>
+            </li>
+            </li>
+                <li class="">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                    <span class="title">Contact Support</span>
                 </a>
             </li>
                 </ul>
