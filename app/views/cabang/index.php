@@ -115,8 +115,8 @@
                               <select class="custom-select" name="jabatan" id="jabatan">
                                 <option selected id="choose" value="">Choose...</option>
                           
-                                <option value="ass">ASSITENT</option>
-                                <option value="ao">AO</option>
+                                <option value="ass">PUSAT</option>
+                                <option value="ao">UTAMA</option>
                               </select>
                             </div>
                              <div class="form-group text-center">

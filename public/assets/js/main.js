@@ -95,4 +95,46 @@ $(function() {
 
     })
 
+    // ANGGOTA
+    // if($('#DataModelsAnggota #jabatan').child().attr('selected') == 'ASSITEN'){
+    //     $('#DataModelsAnggota #mywil').attr('selected');
+    //     $('#DataModelsAnggota #onwil').fadeOut();
+    // }else{
+    //     $('#DataModelsAnggota #mywil').removeattr('selected');
+    //     $('#DataModelsAnggota #onwil').fadeIn();
+    // }
+    $('#DataModelsAnggota #jabatan').click(function(){
+        var jab = $('#DataModelsAnggota #jabatan').val();
+        if(jab == 'ASSISTEN'){
+            // $('#DataModelsAnggota #mywil').attr('value','');
+            $('#onwil').fadeOut();
+        }else{
+            $('#onwil').fadeIn();
+        }
+    })
+    $('#DataModelsAnggota #wilayah').click(function(){
+        var wil = $('#DataModelsAnggota #wilayah').val();
+
+        if(wil !== '-'){
+            // alert($('#agtwill').val(wil));
+            
+            if($('#agtwill').html() == ''){
+                $('#agtwill').html(wil);
+            }
+            else{
+                var s1 = $('#agtwill').html();
+                if(s1 !== wil){
+                    $('#agtwill').html(''+s1+', '+wil);
+                    $('#DataModelsAnggota #wilayah').hide();
+                }
+            }
+            // var his = $('#agtwill').html(wil);
+        }
+    })
+    $('#DataModelsAnggota #resetbtn').click(function(){
+        $('#agtwill').html('');
+        $('#DataModelsAnggota #wilayah').show();
+        $('#DataModelsAnggota #wilayah').val('');
+    })
+
 });

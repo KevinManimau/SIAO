@@ -2,7 +2,6 @@
 
 class Anggota_model {
     private $table = 'anggota';
-    private $table2 = 'jabatan';
     private $db;
 
     public function __construct(){
@@ -15,62 +14,24 @@ class Anggota_model {
         return $this->db->resultSet();
     }
    
-    // public function tambahDataAnggota($data){
-    //     if($data['stat']=="kc"){
-    //         $radio = 'KC';
-    //     }else{
-    //         $radio = 'KCP';
-    //     }
-    //     $query = "INSERT INTO $this->table VALUES('', :nrp, :nama, :stat, :jabatan)";
-        
-    //     $this->db->query($query);
-    //     $this->db->bind('nrp',$data['nrp']);
-    //     $this->db->bind('nama', $data['nama']);
-    //     $this->db->bind('stat', $radio);
-    //     $this->db->bind('jabatan',$data['jabatan']);
-
-    //     $this->db->execute();
-
-    //     return $this->db->rowCount();
-    // }
-    // public function hapusDatabyID($id){
-    //     $this->db->query('DELETE FROM '. $this->table .' WHERE id=:id');
-    //     $this->db->bind('id',$id);
-
-    //     $this->db->execute();
-    //     return $this->db->rowCount();
-    // }
-    // public function updateData($id){
-
-    //     if($data['stat']=="kc"){
-    //         $radio = 'KC';
-    //     }else{
-    //         $radio = 'KCP';
-    //     }
-        
-    //     $update = $this->db->query('SELECT * FROM '.$this->table.' WHERE id=:id');
-
-    //     $this->db->query('UPDATE '. $this->table .' SET= ');
-    //     $this->db->query($query);
-    //     $this->db->bind('nrp',$data['nrp']);
-    //     $this->db->bind('nama', $data['nama']);
-    //     $this->db->bind('stat', $radio);
-    //     $this->db->bind('jabatan',$data['jabatan']);
-
-    //     $this->db->execute();
-
-    //     return $this->db->rowCount();
-    // }
-    // // join
-    public function joinJabatan()
+    public function tambahDataAnggota($data)
     {
-        // .' INNER JOIN '.$this->table2.' ON '.$this->table.'.id_jabatan = '.$this->table2.'.id'
-        $join = $this->db->query('SELECT * FROM '.$this->table);
-        var_dump($this->db->query('SELECT * FROM jabatan'));
         
-        // $this->db->query('SELECT * FROM '.$this->table2.' WHERE id=:id');
-        // $this->db->bind('id',$join['id']);
+        $query = "INSERT INTO ". $this->table ." (id_manager,no_pintar,id_jabatan,nama,image,gender,telp,wilayah) VALUES(:id_m, :no, :id_j, :nama, :img, :gen, :telp, :wil)";
+        
+        $this->db->query($query);
+        $this->db->bind('id_m',1);
+        $this->db->bind('no',$data['nopintar']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('img', $image);
+        $this->db->bind('gen', $radio);
+        $this->db->bind('telp', $data['notelp']);
+        $this->db->bind('idus', $uid);
+        $this->db->bind('idcab', $data['cabang']);
 
-        return $this->db->resultSet();
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 }

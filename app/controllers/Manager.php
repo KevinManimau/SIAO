@@ -1,8 +1,13 @@
 <?php
 
 class Manager extends Controller{
-    public function __construct(){
-        $this->db = new Database;
+    public function __construct()
+    {
+        if(is_null($_SESSION['uname'])){
+            Flasher::setFlash('Salah','silakan login terlebih dahulu','secondary','icon-close');
+            header('Location: ' . BASEURL . 'Auth');
+            exit;
+        }
     }
     public function index()
     {
