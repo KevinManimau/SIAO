@@ -43,18 +43,17 @@
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>
 
-  <!--Sweet Alerts -->
-  <script src="<?=BASEURL?>assets/plugins/alerts-boxes/js/sweetalert.min.js"></script>
-  <script src="<?=BASEURL?>assets/plugins/alerts-boxes/js/sweet-alert-script.js"></script>
-
   <!-- Apex Chart JS -->
   <script src="<?=BASEURL?>assets/plugins/apexcharts/apexcharts.js"></script>
   <script src="<?=BASEURL?>assets/plugins/apexcharts/apex-custom-script.js"></script>
   <!-- Vertical timeline js -->
   <script src="<?=BASEURL?>assets/plugins/vertical-timeline/js/vertical-timeline.js"></script>
-
+   <!--Select Plugins Js-->
+   <script src="<?=BASEURL?>assets/plugins/select2/js/select2.min.js"></script>
+   
   <script>
      $(document).ready(function() {
+      $('.multiple-select').select2();
       //Default data table
        $('#default-datatable').DataTable();
 

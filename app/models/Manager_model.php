@@ -13,7 +13,7 @@ class Manager_model {
         
         $this->db->query('SELECT * FROM manager
                         INNER JOIN user
-                        ON manager.id_user=user.id
+                        ON manager.id_user=user.id_user
                         INNER JOIN cabang
                         ON manager.id_cabang=cabang.id');
         return $this->db->resultSet();
@@ -26,12 +26,15 @@ class Manager_model {
     }
 
     public function tambahDataManager($data,$user){
-        $uid = $user['id'];
+        //mendapat id user
+        $uid = $user['id_user'];
+        //cek apakah nama manager sudah ada
         $this->db->query('SELECT * FROM '.$this->table.' WHERE nama=:nama');
         $this->db->bind('nama',$data['nama']);
         $manager = $this->db->single();
+        // jika manager lebih dari 0 maka hapus user berkaitan
         if($manager > 0){
-            $this->db->query('DELETE FROM '. $this->table2 .' WHERE id=:uid');
+            $this->db->query('DELETE FROM '. $this->table2 .' WHERE id_user=:uid');
             $this->db->bind('uid',$uid);
 
             $this->db->execute();

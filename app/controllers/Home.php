@@ -3,7 +3,7 @@
 class Home extends Controller{
     public function __construct()
     {
-        if(is_null($_SESSION['uname'])){
+        if(is_null($_SESSION['info']['uname'])){
             Flasher::setFlash('Salah','silakan login terlebih dahulu','secondary','icon-close');
             header('Location: ' . BASEURL . 'Auth');
             exit;

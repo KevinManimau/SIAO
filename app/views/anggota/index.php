@@ -55,9 +55,9 @@
                     <td><?=$agt['wilayah']?></td>
                
                     <td>
-                    <a href="<?=BASEURL;?>anggota/detail/<?=$cbg['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
+                    <a href="<?=BASEURL;?>Anggota/detail/<?=$agt['id_agt'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
                     <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light" data-toggle="modal" data-target="#DataModelsAnggota"><i class="fa fa-edit"></i></button>
-                        <a href="<?=BASEURL;?>cabang/hapus/<?=$cbg['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="<?=BASEURL;?>Anggota/hapus/<?=$agt['id_agt'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php $i++;?>
@@ -136,28 +136,15 @@
                                 <input class="form-control" type="file" id="image" name="image">
                               </div>
                               <div id="onwil">
-                              <label class="">Wilayah</label><br>
-                              <div class="input-group mb-3">
-                                
-                              <select class="custom-select" id="wilayah">
-                                <option selected value="-">Choose...</option>
-                                <?php foreach($data['wilayah'] as $wil):?>
-                                  <option value="<?=$wil['nm_wilayah']?>"><?=$wil['nm_wilayah']?></option>
-                                <?php endforeach;?>
-                              </select>
-                            </div>
-                            
-                            <div class="input-group mb-3">
-                              <div class="row">
-                                <div class="col-sm-10">
-                                <textarea name="agtwill" id="agtwill" cols="34" rows="1" disabled></textarea>
-                                </div>
-                                <div class="col-sm-2">
-                                <button type="button" id="resetbtn" class="btn btn-warning"><i class="icon-reload fa-spin"></i> Reset</button>
+                                <div class="form-group">
+                                <label>Wilayah</label>
+                                  <select class="form-control multiple-select" id="wilayah" name="wilayah" multiple="multiple">
+                                      <?php foreach($data['wilayah'] as $wil):?>
+                                        <option value="<?=$wil['id_wil']?>"><?=$wil['nm_wilayah']?></option>
+                                      <?php endforeach;?>
+                                  </select>
                                 </div>
                               </div>
-                            </div>
-                            </div>
                                                                           
                              <div class="form-group text-center">
                               <button class="btn btn-danger px-5" data-dismiss="modal"><i class="icon-close"></i> Batal</button>

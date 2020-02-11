@@ -3,7 +3,7 @@
 class Anggota extends Controller{
     public function __construct()
     {
-        if(is_null($_SESSION['uname'])){
+        if(is_null($_SESSION['info']['uname'])){
             Flasher::setFlash('Salah','silakan login terlebih dahulu','secondary','icon-close');
             header('Location: ' . BASEURL . 'Auth');
             exit;
@@ -28,6 +28,18 @@ class Anggota extends Controller{
             exit;
         }else{
             Flasher::setFlash('Gagal','ditambahkan','danger','icon-close');
+            header('Location: ' . BASEURL . 'Anggota');
+            exit;
+        }
+    }
+    public function hapus($id)
+    {
+        if($this->model('Anggota_model')->hapusDatabyID($id) > 0){
+            Flasher::setFlash('Berhasil','dihapus','secondary','fa fa-trash');
+            header('Location: ' . BASEURL . 'Anggota');
+            exit;
+        }else{
+            Flasher::setFlash('Gagal','dihapus','danger','icon-close');
             header('Location: ' . BASEURL . 'Anggota');
             exit;
         }

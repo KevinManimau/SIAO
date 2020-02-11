@@ -105,36 +105,19 @@ $(function() {
     // }
     $('#DataModelsAnggota #jabatan').click(function(){
         var jab = $('#DataModelsAnggota #jabatan').val();
+        var n1 = $('#wilayah').html();
         if(jab == 'ASSISTEN'){
             // $('#DataModelsAnggota #mywil').attr('value','');
             $('#onwil').fadeOut();
+            $('#wilayah').html('');
         }else{
             $('#onwil').fadeIn();
+            $('#wilayah').html(n1);
         }
     })
-    $('#DataModelsAnggota #wilayah').click(function(){
-        var wil = $('#DataModelsAnggota #wilayah').val();
 
-        if(wil !== '-'){
-            // alert($('#agtwill').val(wil));
-            
-            if($('#agtwill').html() == ''){
-                $('#agtwill').html(wil);
-            }
-            else{
-                var s1 = $('#agtwill').html();
-                if(s1 !== wil){
-                    $('#agtwill').html(''+s1+', '+wil);
-                    $('#DataModelsAnggota #wilayah').hide();
-                }
-            }
-            // var his = $('#agtwill').html(wil);
-        }
-    })
-    $('#DataModelsAnggota #resetbtn').click(function(){
-        $('#agtwill').html('');
-        $('#DataModelsAnggota #wilayah').show();
-        $('#DataModelsAnggota #wilayah').val('');
+    $('#DataModelsAnggota #wilayah').click(function(){
+        alert('sds');
     })
 
 });

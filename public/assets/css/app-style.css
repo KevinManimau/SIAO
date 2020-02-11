@@ -5947,6 +5947,10 @@ animation: animates 4s ease-in-out infinite;
     }
 }
 
+.uppercase{
+    text-transform:uppercase;
+}
+
 /* END */
 
 /* Responsive */
@@ -6038,8 +6042,6 @@ animation: animates 4s ease-in-out infinite;
 
 .hidden-xs {
     display: none!important;
-}
-
 }
 
 @media only screen and (max-width: 575px){

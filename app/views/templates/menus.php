@@ -11,39 +11,40 @@
         </div>
 		
         <ul id="respMenu" class="horizontal-menu">
-		
+            <?php foreach($_SESSION['menu'] as $menu): ?>
 			<li class="menunav">
-                <a href="<?=BASEURL;?>Home" class="active">
-                    <i class="zmdi zmdi-view-dashboard" aria-hidden="true"></i>
-                    <span class="title">Dashboard</span>
+                <a href="<?=BASEURL.$menu['url']?>" class="active">
+                    <i class="<?=$menu['icon']?>" aria-hidden="true"></i>
+                    <span class="title"><?=$menu['judul_menu']?></span>
                 </a>
             </li>
-            <li class="menunav">
-                <a href="<?=BASEURL;?>Cabang" class="">
+            <?php endforeach;?>
+            <!-- <li class="menunav">
+                <a href="<?//=BASEURL;?>Cabang" class="">
                     <i class="fa fa-building" aria-hidden="true"></i>
                     <span class="title">Cabang</span>
                 </a>
             </li>
             <li class="menunav">
-                <a href="<?=BASEURL;?>Manager" class="">
+                <a href="<?//=BASEURL;?>Manager" class="">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="title">Manager</span>
                 </a>
             </li>
             <li class="menunav">
-                <a href="<?=BASEURL;?>Anggota" class="">
+                <a href="<?//=BASEURL;?>Anggota" class="">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span class="title">AO</span>
                 </a>
-            </li>
+            </li> -->
             <!-- <li class="menunav">
                 <a href="<?//=BASEURL;?>Penghargaan" class="">
                     <i class="fa fa-trophy" aria-hidden="true"></i>
                     <span class="title">Penghargaan</span>
                 </a>
             </li> -->
-            <li class="menunav">
-                <a href="<?=BASEURL;?>Transaksi" class="">
+            <!-- <li class="menunav">
+                <a href="Transaksi" class="">
                     <i class="fa fa-money" aria-hidden="true"></i>
                     <span class="title">Transaksi</span>
                 </a>
@@ -75,8 +76,8 @@
                 </a>
             </li>
                 </ul>
-            </li>
-            <li class="menunav">
+            </li> -->
+            <!-- <li class="menunav">
                 <a class="">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     <span class="title">Recovery</span>
@@ -152,7 +153,7 @@
                 </a>
             </li>
                 </ul>
-            </li>
+            </li> -->
             
         </ul>
     </nav>

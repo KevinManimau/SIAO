@@ -34,4 +34,11 @@ class Anggota_model {
 
         return $this->db->rowCount();
     }
+    public function hapusDatabyID($id){
+        $this->db->query('DELETE FROM '. $this->table .' WHERE id_agt=:id');
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

@@ -17,6 +17,13 @@ class User_model {
         $this->db->bind('uname', $data['username']);
         return $this->db->single();
     }
+    public function getUserforAuth($data){
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE username=:uname and password=:paswd');
+        $this->db->bind('uname',$data['username']);
+        $this->db->bind('paswd',$data['password']);
+
+        return $this->db->single();
+    }
     public function tambahDataUser($data)
     {
         $this->db->query('SELECT * FROM '.$this->table.' WHERE username=:uname');
@@ -37,7 +44,7 @@ class User_model {
         
     }
     public function hapusDatabyID($id){
-        $this->db->query('DELETE FROM '. $this->table .' WHERE id=:id');
+        $this->db->query('DELETE FROM '. $this->table .' WHERE id_user=:id');
         $this->db->bind('id',$id);
 
         $this->db->execute();

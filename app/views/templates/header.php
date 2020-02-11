@@ -24,6 +24,8 @@
   <link href="<?=BASEURL?>assets/css/horizontal-menu.css" rel="stylesheet"/>
   <!-- vertical timeline CSS-->
   <link href="<?=BASEURL?>assets/plugins/vertical-timeline/css/vertical-timeline.css" rel="stylesheet"/>
+  <!--Select Plugins-->
+  <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="<?=BASEURL?>assets/css/app-style.css" rel="stylesheet"/>
   <link rel="stylesheet" href="<?=BASEURL?>assets/plugins/apexcharts/apexcharts.css">
