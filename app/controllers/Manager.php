@@ -75,4 +75,8 @@ class Manager extends Controller{
         }
         
     }
+    public function getUbah()
+    {
+        echo json_encode($this->model('Manager_model')->getManagerbyId($_POST['id']));
+    }
 }

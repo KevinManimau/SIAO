@@ -5,10 +5,10 @@
 		<div class="card-body">
 		 <div class="card-content p-2">
 		 	<div class="text-center">
-		 		<img src="<?=BASEURL?>assets/images/logo-icon.png" alt="logo icon">
+		 		<img width="75" src="<?=BASEURL?>assets/images/pintuair.jpg" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">
-              SIMANTO
+              SISTEM INFORMASI<br><span style="font-size:20px;">ACCOUNT OFFICER</span>
           </div>
 		    <form action="<?=BASEURL?>Auth/login" method="post">
 			  <div class="form-group">

@@ -6,7 +6,7 @@
 	<footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © <?= date('Y');?> KSP Kopdit Pintu Air
+          Copyright © <?= date('Y');?> KSP Kopdit Pintu Air 
         </div>
       </div>
     </footer>
@@ -60,7 +60,7 @@
 
        var table = $('#example').DataTable( {
         lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+        buttons: [ 'copy', 'excel', 'pdf', 'print' ]
       } );
  
      table.buttons().container()

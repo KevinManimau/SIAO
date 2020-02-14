@@ -34,6 +34,7 @@
                         <th>GENDER</th>
                         <th>TELP/HP</th>
                         <th>USERNAME/PASSWORD</th>
+                        <th>LAST LOGIN</th>
                         <th>CABANG</th>
                        
                         <th>PILIHAN</th>
@@ -48,14 +49,15 @@
                     <td><?=$i;?></td>
                     <td><?=$mgr['no_pintar']?></td>
                     <td><?=$mgr['nama']?></td>
-                    <td><img src="<?=BASEURL;?>assets/images/company/Nita/anggota/<?=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td>
+                    <td><img src="<?=BASEURL;?>assets/images/company/Manager/<?=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td>
                     <td><?=$mgr['gender']?></td>
                     <td><?=$mgr['telp']?></td>
                     <td>
                         <span class="badge badge-primary"><?=$mgr['username']?></span><br>/<br>
                         <span class="badge badge-primary mt-2"><?=$mgr['password']?></span>
                     </td>
-                    <td><?=$mgr['nama_cab']?></td>
+                    <td><?=date("Y-m-d H:i:s", $mgr['last_login'])?></td>
+                    <td class="text-uppercase"><?=$mgr['nama_cab']?></td>
                
                     <td>
                     <a href="<?=BASEURL;?>Manager/detail/<?=$mgr['id_manager'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
@@ -75,6 +77,7 @@
                         <th>GENDER</th>
                         <th>TELP/HP</th>
                         <th>USERNAME/PASSWORD</th>
+                        <th>LAST LOGIN</th>
                         <th>CABANG</th>
                      
                     </tr>

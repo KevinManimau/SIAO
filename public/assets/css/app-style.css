@@ -5882,9 +5882,9 @@ table.grid td {
     background: #ccc;
 }
 
-.buttons-colvis{
+/* .buttons-colvis{
     display:none;
-}
+} */
 #ratingme .btn-group{
     display:none;
 }

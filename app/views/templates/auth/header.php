@@ -8,7 +8,7 @@
   <meta name="author" content=""/>
   <title><?=$data['title']?></title>
   <!--favicon-->
-  <link rel="icon" href="<?=BASEURL?>assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="<?=BASEURL?>assets/images/pintuair.jpg" type="image/x-icon">
   <!-- Bootstrap core CSS-->
   <link href="<?=BASEURL?>assets/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- animate CSS-->
@@ -20,7 +20,7 @@
   
 </head>
 
-<body style="background-image:url(<?=BASEURL?>assets/images/textures/texture-c.png); background-size:cover;">
+<body>
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>

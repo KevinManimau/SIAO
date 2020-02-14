@@ -24,6 +24,17 @@ class User_model {
 
         return $this->db->single();
     }
+    public function UpdateTimeUser($id)
+    {
+        $waktusekarang = time();
+        $query = "UPDATE ". $this->table ." SET `last_login`=:time WHERE `id_user`=:id ";
+        $this->db->query($query);
+        $this->db->bind('time',$waktusekarang);
+        $this->db->bind('id',$id);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
     public function tambahDataUser($data)
     {
         $this->db->query('SELECT * FROM '.$this->table.' WHERE username=:uname');

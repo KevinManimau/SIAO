@@ -28,31 +28,32 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>JABATAN</th>
                         <th>NO.PINTAR</th>
-                        <th>NAMA</th>
-                        <th>GENDER</th>
-                        <th>TELP/HP</th>
-                        <th>ALAMAT</th>
+                        <th>NAMA AO</th>
+                        <th>NASABAH</th>
+                        <th>TELP/HP NASABAH</th>
+                        <th>ALAMAT NASABAH</th>
+                        <th>TANGGAL PINJAMAN</th>
+                        <th>BESAR PINJAMAN</th>
+                        <th>SISA PINJAMAN</th>
                         <th>PILIHAN</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td></td>
-                  </tr>
+                  
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>JABATAN</th>
                         <th>NO.PINTAR</th>
-                        <th>NAMA</th>
-                        <th>GENDER</th>
-                        <th>TELP/HP</th>
-                        <th>ALAMAT</th>
+                        <th>NAMA AO</th>
+                        <th>NASABAH</th>
+                        <th>TELP/HP NASABAH</th>
+                        <th>ALAMAT NASABAH</th>
+                        <th>TANGGAL PINJAMAN</th>
+                        <th>BESAR PINJAMAN</th>
+                        <th>SISA PINJAMAN</th>
                     </tr>
                 </tfoot>
             </table>

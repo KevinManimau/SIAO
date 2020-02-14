@@ -19,8 +19,8 @@ class Manager_model {
         return $this->db->resultSet();
     }
     public function getManagerbyId($id){
-        $this->db->query('SELECT * FROM '.$this->table.' WHERE id_manager=:id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE id_manager=:idman');
+        $this->db->bind('idman', $id);
         
         return $this->db->single();
     }

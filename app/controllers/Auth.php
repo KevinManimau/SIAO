@@ -30,27 +30,33 @@ class Auth extends Controller{
             }
 
             $uid = $usession['id_user'];
-            // if($this->model('Auth_model')->getidManager($_POST)){
-            $mgr =  $this->model('Auth_model')->getidManager($uid);
-            // $idmgr = $mgr['id_manager'];
-            $_SESSION['info'] = [
-                'uname' => $usession['username'],
-                'idrole' => $myrole['id'],
-                'role' => $myrole['role']
-            ];
-            $_SESSION['manager'] = $mgr;
-            $_SESSION['menu']=$yourmenu;
-            header('Location: ' . BASEURL . 'Home');
-            // }else{
-            //     Flasher::setFlash('Gagal','username dan password anda salah','danger','icon-close');
-            //     header('Location: ' . BASEURL . 'Auth');
-            //     exit;
-            // }       
+            // $timeuser = $this->model('User_model')->UpdateTimeUser($uid);
+            if($this->model('User_model')->UpdateTimeUser($uid) > 0){
+                $uid = $usession['id_user'];
+                $mgr =  $this->model('Auth_model')->getidManager($uid);
+                // $idmgr = $mgr['id_manager'];
+                $_SESSION['info'] = [
+                    'uname' => $usession['username'],
+                    'idrole' => $myrole['id'],
+                    'role' => $myrole['role']
+                ];
+                $_SESSION['manager'] = $mgr;
+                $_SESSION['menu']=$yourmenu;
+                header('Location: ' . BASEURL . 'Home');
+
+            }else{
+                Flasher::setFlash('Gagal','username dan password anda salah','danger','icon-close');
+                header('Location: ' . BASEURL . 'Auth');
+                exit;
+            }       
         }else{
             Flasher::setFlash('Gagal','username dan password anda salah','danger','icon-close');
             header('Location: ' . BASEURL . 'Auth');
             exit;
         }
+        
+
+
     }
     public function logout()
     {

@@ -96,21 +96,21 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                          <form action="<?=BASEURL?>Anggota/tambah" method="post">
+                          <form action="<?=BASEURL?>Anggota/tambah" method="post" enctype="multipart/form-data">
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <label class="input-group-text" for="jabatan">Jabatan</label>
                               </div>
-                              <select class="custom-select" id="jabatan">
+                              <select class="custom-select" id="jabatan" name="jabatan">
                                 <option selected>Choose...</option>
                                 <?php foreach($data['jbt'] as $jbt):?>
-                                  <option value="<?=$jbt['jabatan']?>"><?=$jbt['jabatan']?></option>
+                                  <option value="<?=$jbt['id']?>"><?=$jbt['jabatan']?></option>
                                 <?php endforeach;?>
                               </select>
                             </div>
                              <div class="form-group">
-                               <label for="nrp">NO.PINTAR</label>
-                               <input type="text" class="form-control" name="nrp" id="nrp" placeholder="Enter NO Pintar">
+                               <label for="nopintar">NO.PINTAR</label>
+                               <input type="text" class="form-control" name="nopintar" id="nopintar" placeholder="Enter NO Pintar">
                              </div>
                              <div class="form-group">
                                <label for="nama">NAMA</label>
@@ -119,11 +119,11 @@
                              <div class="form-group">
                              <label>GENDER</label><br>
                                 <div class="icheck-material-primary icheck-inline">
-                                      <input type="radio" id="inline-radio-primary" name="stat" value="laki" checked/>
+                                      <input type="radio" id="inline-radio-primary" name="gender" value="LAKI-LAKI" checked/>
                                       <label for="inline-radio-primary">Laki-Laki</label>
                                     </div><br>
                                     <div class="icheck-material-info icheck-inline">
-                                      <input type="radio" id="inline-radio-info" name="stat" value="perempuan"/>
+                                      <input type="radio" id="inline-radio-info" name="gender" value="PEREMPUAN"/>
                                       <label for="inline-radio-info">Perempuan</label>
                                     </div>
                              </div>
@@ -134,17 +134,22 @@
                             <label>Foto</label>
                               <div class="input-group mb-3">
                                 <input class="form-control" type="file" id="image" name="image">
+                                <!-- <button id="upload">Upload</button> -->
                               </div>
+                              <!-- <div id="err"></div>
+                              <div id="preview"></div> -->
                               <div id="onwil">
                                 <div class="form-group">
                                 <label>Wilayah</label>
                                   <select class="form-control multiple-select" id="wilayah" name="wilayah" multiple="multiple">
                                       <?php foreach($data['wilayah'] as $wil):?>
-                                        <option value="<?=$wil['id_wil']?>"><?=$wil['nm_wilayah']?></option>
+                                        <option value="<?=$wil['nm_wilayah']?>"><?=$wil['nm_wilayah']?></option>
                                       <?php endforeach;?>
                                   </select>
+                                  <!-- <button type="button" id="ok">asda</button> -->
                                 </div>
                               </div>
+                              <input type="hidden" id="listwilayah">
                                                                           
                              <div class="form-group text-center">
                               <button class="btn btn-danger px-5" data-dismiss="modal"><i class="icon-close"></i> Batal</button>

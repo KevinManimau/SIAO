@@ -6,8 +6,8 @@
       <a class="nav-link" href="javascript:void();">
         <div class="media align-items-center">
           <div class="media-body anwater">
-            <h5 class="logo-text">SIMANTO</h5>
-            <h5 class="logo-text">SIMANTO</h5>
+            <h5 class="logo-text">SIA</h5>
+            <h5 class="logo-text">SIA</h5>
           </div>
         </div>
      </a>
