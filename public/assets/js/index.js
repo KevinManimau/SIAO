@@ -8,17 +8,17 @@ $(function() {
 			var myChart = new Chart(ctx, {
 				type: 'line',
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 					datasets: [{
 						label: 'New Visitor',
-						data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
+						data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3, 5, 20],
 						backgroundColor: '#14abef',
 						borderColor: "transparent",
 						pointRadius :"0",
 						borderWidth: 3
 					}, {
 						label: 'Old Visitor',
-						data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5],
+						data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5, 7, 13],
 						backgroundColor: "rgba(20, 171, 239, 0.35)",
 						borderColor: "transparent",
 						pointRadius :"0",

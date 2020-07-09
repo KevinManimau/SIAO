@@ -5,10 +5,10 @@
       <!-- Breadcrumb-->
      <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-		    <h4 class="page-title">TRANSAKSI ACCOUNT OFFICE</h4>
+		    <h4 class="page-title">TRANSAKSI ACCOUNT OFFICER</h4>
         </div>
         <div class="col-sm-3 text-right">
-        <button type="button" class="btnadd align-right btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#DataModels"><i class="fa fa-plus mr-3"></i>Tambah Transaksi</button>
+        <a href="<?=BASEURL?>Transaksi/addNew" class="btnadd align-right btn btn-primary waves-effect waves-light"><i class="fa fa-plus mr-3"></i>Tambah Transaksi</a>
         </div>
      </div>
      <div class="row">
@@ -28,32 +28,89 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>TANGGAL TRANS</th>
+                        <th>TANGGAL KONTRAK</th>
                         <th>NO.PINTAR</th>
                         <th>NAMA AO</th>
                         <th>NASABAH</th>
                         <th>TELP/HP NASABAH</th>
-                        <th>ALAMAT NASABAH</th>
+                        <th>WILAYAH</th>
                         <th>TANGGAL PINJAMAN</th>
                         <th>BESAR PINJAMAN</th>
-                        <th>SISA PINJAMAN</th>
+                        <th>TELAH DIBAYAR</th>
+                        <th>SISA PEMBAYARAN</th>
+                        <th>STATUS</th>
                         <th>PILIHAN</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                  
+                  <?php $i=1;?>
+                  <?php foreach($data['transaksi'] as $trans) :?>
+                    <tr>
+                      <td><?=$i?></td>
+                      <td><?=date('d-m-Y',$trans['tgl_transaksi'])?></td>
+                      <td><?=date('d-m-Y',$trans['tgl_kontrak'])?></td>
+                      <td><?=$trans['no_pintar']?></td>
+                      <td><?=$trans['nama']?></td>
+                      <td><?=$trans['nama_nas']?></td>
+                      <td><?=$trans['no_telp_nas']?></td>
+                      <td>
+                      <?php 
+                        $wil= $trans['id_wil'];
+                        $wilayahku = $this->model('Wilayah_model')->getWilayahbyId($wil);
+                        echo $wilayahku['nm_wilayah'];
+                      ?>
+                      </td>
+                      <td><?=date("d-m-Y", $trans['tgl_pinjam'])?></td>
+                      <td><?="Rp. ".$trans['jumlah_bayar']?></td>
+                      <td><?php
+                        if(is_null($trans['income'])){
+                          echo "Belum Dibayar";
+                        }else{
+                          echo "Rp. ".$trans['income'];
+                        }
+                      ?>
+                      </td>
+                      <td><?="Rp. ".$trans['sisa_pinjam']?></td>
+                      <td>
+                      <?php 
+                        switch($trans['status_pembayaran']){
+                          case 0:
+                            echo "Belum Lunas"; 
+                            break; 
+                          case 1:
+                            echo "Lunas";
+                            break;
+                          default:
+                            echo "Belum Lunas";
+                            break;
+                        }
+                        ?>
+                      </td>
+                      <td>
+                        <a href="<?=BASEURL?>Transaksi/detail/<?=$trans['id_transaksi']?>" class="btn btn-primary"><i class="fa fa-television"></i></a>
+                        <a href="<?=BASEURL;?>Transaksi/hapus/<?=$trans['id_transaksi']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  <?php $i++;?>
+                  <?php endforeach;?>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>No</th>
+                        <th>TANGGAL TRANS</th>
+                        <th>TANGGAL KONTRAK</th>
                         <th>NO.PINTAR</th>
                         <th>NAMA AO</th>
                         <th>NASABAH</th>
                         <th>TELP/HP NASABAH</th>
-                        <th>ALAMAT NASABAH</th>
+                        <th>WILAYAH</th>
                         <th>TANGGAL PINJAMAN</th>
                         <th>BESAR PINJAMAN</th>
-                        <th>SISA PINJAMAN</th>
+                        <th>PINJAMAN + BUNGA</th>
+                        <th>SISA PEMBAYARAN</th>
+                        <th>STATUS</th>
                     </tr>
                 </tfoot>
             </table>
@@ -65,61 +122,6 @@
 <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
     <!--end overlay-->
-    
-    <!-- Modals Tambah -->
-    <div class="modal fade" id="DataModels">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content animated lightSpeedIn">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Tambah Anggota</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                          <form action="<?=BASEURL?>cabang/tambah" method="post">
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Jabatan</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            </div>
-                             <div class="form-group">
-                               <label for="nrp">NO.PINTAR</label>
-                               <input type="text" class="form-control" name="nrp" id="nrp" placeholder="Enter NO Pintar">
-                             </div>
-                             <div class="form-group">
-                               <label for="nama">NAMA</label>
-                               <input type="text" class="form-control" name="nama" id="nama" placeholder="Enter Nama">
-                             </div>
-                             <div class="form-group">
-                               <label for="gender">GENDER</label>
-                               <input type="text" class="form-control" name="gender" id="gender" placeholder="Enter Gender">
-                             </div>
-                             <div class="form-group">
-                               <label for="notelp">TELP/HP</label>
-                               <input type="text" class="form-control" name="notelp" id="notelp" placeholder="Enter NO TELP/HP">
-                             </div>
-                            <div class="form-group">
-                            <label for="alamat">ALAMAT</label><br>
-                              <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
-                            </div>                             
-                                                                                      
-                             <div class="form-group text-center">
-                              <button class="btn btn-danger px-5" data-dismiss="modal"><i class="icon-close"></i> Batal</button>
-                              <button type="submit" class="btn btn-primary px-5 "><i class="icon-lock"></i> Simpan</button>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    <!-- ENd Modals -->
 
     </div>
     <!-- End container-fluid-->

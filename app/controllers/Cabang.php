@@ -3,8 +3,7 @@
 class Cabang extends Controller{
     public function __construct()
     {
-        if(is_null($_SESSION['info']['uname'])){
-            Flasher::setFlash('Salah','silakan login terlebih dahulu','secondary','icon-close');
+        if(is_null($_SESSION['info']['uname']) && is_null($_SESSION['info']['pass'])){
             header('Location: ' . BASEURL . 'Auth');
             exit;
         }

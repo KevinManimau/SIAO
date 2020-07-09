@@ -30,7 +30,7 @@
                         <th>No</th>
                         <th>NO.PINTAR</th>
                         <th>NAMA MANAGER</th>
-                        <th>IMAGE</th>
+                        <!-- <th>IMAGE</th> -->
                         <th>GENDER</th>
                         <th>TELP/HP</th>
                         <th>USERNAME/PASSWORD</th>
@@ -49,7 +49,7 @@
                     <td><?=$i;?></td>
                     <td><?=$mgr['no_pintar']?></td>
                     <td><?=$mgr['nama']?></td>
-                    <td><img src="<?=BASEURL;?>assets/images/company/Manager/<?=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td>
+                    <!-- <td><img src="<?//=BASEURL;?>assets/images/company/Manager/<?//=$mgr['image'];?>" alt="profile-image" class="profile img-rounded"></td> -->
                     <td><?=$mgr['gender']?></td>
                     <td><?=$mgr['telp']?></td>
                     <td>
@@ -60,9 +60,9 @@
                     <td class="text-uppercase"><?=$mgr['nama_cab']?></td>
                
                     <td>
-                    <a href="<?=BASEURL;?>Manager/detail/<?=$mgr['id_manager'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
-                    <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModelsManager"><i class="fa fa-edit"></i></button>
-                    <a href="<?=BASEURL;?>Manager/hapus/<?=$mgr['id_manager'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    <!-- <a href="<?//=BASEURL;?>Manager/detail/<?//=$mgr['id_manager'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a> -->
+                    <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditManager" data-toggle="modal" data-target="#DataModelsManager" data-id="<?=$mgr['id_manager'];?>"><i class="fa fa-edit"></i></button>
+                    <a onclick="return confirm('Yakin Ingin Menghapus?')" href="<?=BASEURL;?>Manager/hapus/<?=$mgr['id_manager'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php $i++;?>
@@ -73,7 +73,7 @@
                     <th>No</th>
                         <th>NO.PINTAR</th>
                         <th>NAMA MANAGER</th>
-                        <th>IMAGE</th>
+                        <!-- <th>IMAGE</th> -->
                         <th>GENDER</th>
                         <th>TELP/HP</th>
                         <th>USERNAME/PASSWORD</th>
@@ -107,7 +107,7 @@
                           <div class="row">
                             <div class="col-lg-6">
                             <h4>BIODATA</h4>
-                            
+                            <input type="hidden" id="idmanager" name="idmanager">
                              <div class="form-group">
                                <label for="nopintar">NO.PINTAR</label>
                                <input type="text" class="form-control" name="nopintar" id="nopintar" placeholder="Enter NO Pintar">
@@ -136,16 +136,16 @@
                                 <label class="input-group-text" for="cabang">Cabang</label>
                               </div>
                               <select class="custom-select cabang" id="cabang" name="cabang">
-                                <option selected>Choose...</option>
+                                <option id="choose" selected>Choose...</option>
                                 <?php foreach($data['cbg'] as $cbg):?>
                                 <option value="<?=$cbg['id']?>"><?=$cbg['status']?> <?=$cbg['nama_cab']?></option>
                                 <?php endforeach;?>
                               </select>
                               </div>
-                              <label>Foto</label>
+                              <!-- <label>Foto</label>
                               <div class="input-group mb-3">
                                 <input class="form-control" type="file" id="image" name="image">
-                              </div>
+                              </div> -->
                           
                        
                             </div>
@@ -159,10 +159,10 @@
                             <label for="password1">PASSWORD</label><br>
                             <input type="text" class="form-control" name="password1" id="password1" placeholder="Enter New Password">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group" id="konfirm">
                             <label for="password2">KONFIRMASI PASSWORD</label><br>
                             <input type="text" class="form-control" name="password2" id="password2" placeholder="Enter Password Again">
-                            </div>
+                            </div> -->
                             </div>
                           </div>
                                                        

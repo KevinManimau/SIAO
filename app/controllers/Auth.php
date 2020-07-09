@@ -3,7 +3,7 @@
 class Auth extends Controller{
     public function index()
     {
-        $data['title'] = 'SIMANTO | LOGIN PAGES';
+        $data['title'] = 'STICO | LOGIN PAGES';
         $this->view('templates/auth/header',$data);
         $this->view('auth/index');
         $this->view('templates/auth/footer');
@@ -37,6 +37,7 @@ class Auth extends Controller{
                 // $idmgr = $mgr['id_manager'];
                 $_SESSION['info'] = [
                     'uname' => $usession['username'],
+                    'pass' => $_POST['password'], 
                     'idrole' => $myrole['id'],
                     'role' => $myrole['role']
                 ];
@@ -68,5 +69,19 @@ class Auth extends Controller{
     public function page404()
     {
         $this->view('auth/404');
+    }
+    public function lockon()
+    {
+        // unset($_SESSION['info']['pass']);
+        // var_dump($_SESSION['info']);
+        $data['title'] = 'LOCK SCREEN';
+        $this->view('templates/auth/header',$data);
+        $this->view('auth/lockon');
+        $this->view('templates/auth/footer');
+    }
+    public function unlock()
+    {
+        $_SESSION['info']['pass'] = $_POST['mautahu'];
+        header('Location: ' . BASEURL . 'Home'); 
     }
 }

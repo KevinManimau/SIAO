@@ -31,7 +31,7 @@
                         <th>NRP</th>
                         <th>NAMA CABANG</th>
                         <th>KC/KCP</th>
-                        <th>JABATAN</th>
+                        <!-- <th>JABATAN</th> -->
                         <th>PILIHAN</th>
                         
                     </tr>
@@ -45,9 +45,9 @@
                         <td><?= $cbg['nrp'];?></td>
                         <td><?= $cbg['nama_cab'];?></td>
                         <td><?= $cbg['status'];?></td>
-                        <td><?= $cbg['jabatan_cab'];?></td>
+                        <!-- <td><?//= $cbg['jabatan_cab'];?></td> -->
                         <td>
-                        <a href="<?=BASEURL;?>Cabang/detail/<?=$cbg['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a>
+                        <!-- <a href="<?//=BASEURL;?>Cabang/detail/<?//=$cbg['id'];?>" class="btn btn-primary text-white"><i class="fa fa-television"></i></a> -->
                         <button type="button" class="btnedit align-right btn btn-warning waves-effect waves-light tampilModalEditCabang" data-toggle="modal" data-target="#DataModelsCabang" data-id="<?=$cbg['id'];?>"><i class="fa fa-edit"></i></button>
                         <a onclick="return confirm('Yakin Ingin Menghapus?')" href="<?=BASEURL;?>Cabang/hapus/<?=$cbg['id'];?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         
@@ -62,7 +62,7 @@
                         <th>NRP</th>
                         <th>NAMA CABANG</th>
                         <th>KC/KCP</th>
-                        <th>JABATAN</th>
+                        <!-- <th>JABATAN</th> -->
                     </tr>
                 </tfoot>
             </table>
@@ -108,17 +108,7 @@
                                       <label for="kcp">KCP</label>
                                     </div>
                              </div>
-                             <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="jabatan">Jabatan</label>
-                              </div>
-                              <select class="custom-select" name="jabatan" id="jabatan">
-                                <option selected id="choose" value="">Choose...</option>
-                          
-                                <option value="ass">PUSAT</option>
-                                <option value="ao">UTAMA</option>
-                              </select>
-                            </div>
+                             
                              <div class="form-group text-center">
                               <button class="btn btn-danger px-5" data-dismiss="modal"><i class="icon-close"></i> Batal</button>
                               <button type="submit" class="btn btn-primary px-5 action"><i class="icon-lock"></i> Simpan</button>

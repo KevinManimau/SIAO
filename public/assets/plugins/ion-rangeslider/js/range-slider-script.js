@@ -1,12 +1,11 @@
 $(function () {
 
             $("#range_01").ionRangeSlider();
-
-
+            
             $("#range_02").ionRangeSlider({
-                min: 100,
-                max: 1000,
-                from: 550
+                min: 0,
+                max: 100,
+                from: 0
             });
 
               $("#range_03").ionRangeSlider({

@@ -5947,6 +5947,25 @@ animation: animates 4s ease-in-out infinite;
 .uppercase{
     text-transform:uppercase;
 }
+.list-nav{
+    list-style:none;
+}
+.mylist{
+    margin-top: 30px;
+    transition:0.3s;
+}
+.mylist:hover{
+    color:rgb(0, 0, 78);
+    transition:0.3s;
+}
+.mylist.selected{
+    color:rgb(0, 0, 78);
+    font-weight:700;
+}
+.mysidebar{
+    border-right: 2px solid #ccc;
+}
+
 
 /* END */
 
@@ -6107,6 +6126,6 @@ animation: animates 4s ease-in-out infinite;
   .topbar-nav .navbar {
     padding: 0px 10px 0 5px;
   }
-
+  
 
 }

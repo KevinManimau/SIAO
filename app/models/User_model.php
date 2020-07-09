@@ -61,4 +61,17 @@ class User_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
+    public function ubahDataUser($data, $iduser){
+        // $this->db->query('SELECT * FROM '.$this->table.' WHERE id_manager=:mgrid');
+        // $this->db->bind('mgrid',$iduser);
+        // $manager = $this->db->single();
+            $query = "UPDATE ". $this->table ." SET username=:uname,password=:pass WHERE id_user=:iduser";
+            $this->db->query($query);
+            $this->db->bind('uname', $data['username']);
+            $this->db->bind('pass', $data['password1']);
+            $this->db->bind('iduser', $iduser);
+
+            $this->db->execute();
+            return $this->db->rowCount();
+    }
 }

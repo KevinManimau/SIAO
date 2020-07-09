@@ -25,15 +25,18 @@
 			   <div class="position-relative has-icon-right">
 				  <input type="password" id="password" name="password" class="form-control input-shadow" placeholder="Enter Password">
 				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
+				  	<div class="changebutton">
+				  		<i class="fa fa-eye-slash" id="eyeslash" onclick="myspecialButton()"></i>
+					</div>
 				  </div>
 			   </div>
 			  </div>
              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
              <div class="mt-5">
              <?php Flasher::alert();?>
-             </div>
-			 </form>
+             <!-- </div>
+			 <a class="btn btn-warning" href="<?//=BASEURL?>Home"><i class="fa fa-angle-left"></i> Back</a>
+			 </form> -->
 		   </div>
 		  </div>
 	     </div>

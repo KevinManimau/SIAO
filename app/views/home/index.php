@@ -13,6 +13,14 @@
          <?php Flasher::alert();?>
        </div>
      </div>
+     <!-- <div class="row mt-5">
+       <div class="col-sm-6">
+         <button class="btn btn-primary" onclick="changeDate('kurang')"><i class="fa fa-angle-left"></i> Previous</button>
+       </div>
+       <div class="col-sm-6 text-right">
+         <button class="btn btn-primary" onclick="changeDate('tambah')">Next <i class="fa fa-angle-right"></i></button>
+       </div>
+     </div> -->
     <!-- End Breadcrumb-->
       
      <!--Start Dashboard Content-->
@@ -21,7 +29,8 @@
        <div class="col-12 col-lg-6 col-xl-3">
          <div class="card gradient-forest">
            <div class="card-body">
-              <h5 class="text-white mb-0">14 <span class="float-right"><i class="fa fa-users"></i></span></h5>
+              <h5 class="text-white mb-0 ajax1"><?=count($data['filagt'])?> <span class="float-right"><i class="fa fa-users"></i></span></h5>
+              <span>Orang</span>
               <p class="mb-0 text-white small-font">ACCOUNT OFFICER (AO) AKTIF</p>
             </div>
          </div> 
@@ -29,7 +38,8 @@
        <div class="col-12 col-lg-6 col-xl-3">
          <div class="card gradient-forest">
            <div class="card-body">
-              <h5 class="text-white mb-0">15 <span class="float-right"><i class="fa fa-line-chart"></i></span></h5>
+              <h5 class="text-white mb-0 ajax2"><?=count($data['trans'])?> <span class="float-right"><i class="fa fa-line-chart"></i></span></h5>
+              Per <span class="dateTarget"><?=date('m/d/Y')?></span>
               <p class="mb-0 text-white small-font">JUMLAH TRANSAKSI</p>
             </div>
          </div>
@@ -37,15 +47,23 @@
        <div class="col-12 col-lg-6 col-xl-3">
          <div class="card gradient-forest">
             <div class="card-body">
-              <h5 class="text-white mb-0">25.000 <span class="float-right"><i class="fa fa-user"></i></span></h5>
-              <p class="mb-0 text-white small-font">JUMLAH ANGGOTA</p>
+              <h5 class="text-white mb-0 ajax3"><?=count($data['nas'])?> <span class="float-right"><i class="fa fa-user"></i></span></h5>
+              <span>Orang</span>
+              <p class="mb-0 text-white small-font">JUMLAH NASABAH</p>
             </div>
          </div>
        </div>
        <div class="col-12 col-lg-6 col-xl-3">
          <div class="card gradient-forest">
             <div class="card-body">
-              <h5 class="text-white mb-0">4.261.200 <span class="float-right"><i class="fa fa-money"></i></span></h5>
+              <?php
+                $total = 0;
+                foreach($data['trans'] as $trans){
+                  $total = $total + $trans['jumlah_bayar'];
+                }
+              ?>
+              <h5 class="text-white mb-0 ajax4">Rp. <?=$total?> <span class="float-right"><i class="fa fa-money"></i></span></h5>
+              Per <span class="dateTarget"><?=date('m/d/Y')?></span>
               <p class="mb-0 text-white small-font">NILAI TRANSAKSI</p>
             </div>
          </div>
@@ -57,40 +75,85 @@
      <div class="row">
         <div class="col-lg-6">
           <div class="card">
-            <div class="card-header uppercase"><i class="fa fa-table"></i> TABEL KINERJA PEGAWAI <?=date('M Y');?></div>
+            <div class="card-header uppercase"><i class="fa fa-table"></i> TABEL KINERJA PEGAWAI <span class="dateTarget text-danger"><?=date('M Y')?></span></div>
             <div class="card-body">
               <div class="table-responsive">
               <table id="example" class="text-center table table-bordered">
                 <thead class="gradient-forest text-white">
                     <tr>
                         <th>NAMA AO</th>
-                        <th>Transaksi</th>                        
+                        <th>BESAR BUNGA</th>
+                        <th>TARGET YANG TERCAPAI</th>                        
                     </tr>
                 </thead>
                 <tbody>
-                <tr class="gradient-quepal text-white">
-                    <td>Budi</td>
-                    <td>20</td>
+                <?php $i = 1;?>
+                <?php foreach($data['filagt'] as $ao):?>
+                    <?php
+                    // var_dump($ao);
+                    if($ao['jml_bayar'] == 0){
+                      $pencaipaian = 0;
+                    }else{
+                    $income = $ao['income'];
+                    $target_ao = $ao['jml_bayar'];
+                    $math = $income / $target_ao * 100;
+                    $pencaipaian = round($math);
+                    }
+                    // $pencaipaian = PDO::PARAM_INT;
+                    if($pencaipaian >= 80){
+                      $background = "gradient-quepal";
+                    }elseif($pencaipaian >= 50){
+                      $background = "gradient-knight";
+                    }else{
+                      $background = "gradient-redmist";
+                    }
+                    
+                    ?>
+                <tr class="<?=$background?> text-white" style="" id="row<?=$i?>">
+                    <td>
+                      <div class="row">
+                        <div class="text-left col-sm-12 pintarget<?=$i?>">
+                          <i class="fa fa-plus-circle" style="font-size:20px;" onclick="showTarget(<?=$i?>)"></i>
+                        </div>
+                        <div class="col-sm-12">
+                          <?=$ao['nama_ao']?>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p>Rp. <?=$ao['jml_bayar']?></p>
+                      <div class="bg-primary text-white target<?=$i?>" style="display:none; height:100%;">
+                        <span>Pencapaian : </span><br>
+                        <span><strong><?=$pencaipaian?>%</strong></span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>Rp. <?=$ao['income']?></p>
+                      <div class="bg-primary text-white target<?=$i?>" style="display:none; height:100%;">
+                        <span>Kekurangan : </span><br>
+                        <span>Rp. <?=$ao['sisa_bayar']?></span>
+                      </div>
+                    </td>
                 </tr>
-                <tr class="gradient-quepal text-white">
-                    <td>Setiawan</td>
-                    <td>21</td>
-                </tr>
-                <tr class="gradient-orange text-white">
-                    <td>Putra</td>
-                    <td>11</td>
-                </tr>
-                <tr class="gradient-orange text-white">
-                    <td>Silvana</td>
-                    <td>6</td>
-                </tr>
-                <tr class="gradient-redmist text-white">
-                    <td>Jawhead</td>
-                    <td>3</td>
-                </tr>
+                <?php
+                $i++;
+                ?>
+                <?php endforeach;?>
                 </tbody>
-               
             </table>
+            </div>
+            <p><strong>Keterangan</strong> :</p>
+            <div class="row m-2">
+                    <div class="col-1 bg-success"></div>
+                    <div class="col-11"> : Target Tercapai >= 80%</div>
+            </div>
+            <div class="row m-2">
+                    <div class="col-1 bg-warning"></div>
+                    <div class="col-11"> : Target Tercapai >= 50%</div>
+            </div>
+            <div class="row m-2">
+                    <div class="col-1 bg-danger"></div>
+                    <div class="col-11"> : Target Tercapai >= 0%</div>
             </div>
             </div>
           </div>
@@ -99,9 +162,9 @@
         <div class="col-lg-6">
 
           <div class="card">
-                <div class="card-header text-uppercase">GRAFIK PENCAPAIAN TAHUN <?=date('Y');?></div>
+                <div class="card-header text-uppercase" >GRAFIK PENCAPAIAN TAHUN <span class="grafiktahunan"><?=date('Y');?></span></div>
             <div class="card-body">
-              <div id="chart1"></div>
+              <canvas id="perhitunganTahun"></canvas>
             </div>  
           </div>
         </div>
@@ -112,7 +175,6 @@
 <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
     <!--end overlay-->
-
     </div>
     <!-- End container-fluid-->
     

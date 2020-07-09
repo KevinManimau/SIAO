@@ -3,8 +3,7 @@
 class Manager extends Controller{
     public function __construct()
     {
-        if(is_null($_SESSION['info']['uname'])){
-            Flasher::setFlash('Salah','silakan login terlebih dahulu','secondary','icon-close');
+        if(is_null($_SESSION['info']['uname']) && is_null($_SESSION['info']['pass'])){
             header('Location: ' . BASEURL . 'Auth');
             exit;
         }
@@ -78,5 +77,32 @@ class Manager extends Controller{
     public function getUbah()
     {
         echo json_encode($this->model('Manager_model')->getManagerbyId($_POST['id']));
+    }
+    public function ubah()
+    {
+        $mgr = $this->model('Manager_model')->getManagerbyId($_POST['idmanager']);
+        // $this->model('User_model')->UbahDataUser($_POST,$mgr['id_user']);
+        
+        if($this->model('Manager_model')->ubahDataManager($_POST) > 0){
+            if($this->model('User_model')->UbahDataUser($_POST,$mgr['id_user']) > 0){
+                Flasher::setFlash('Berhasil','diubah','success','fa fa-check');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }else{
+                Flasher::setFlash('Berhasil','diubah','success','fa fa-check');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }
+        }else{
+            if($this->model('User_model')->UbahDataUser($_POST,$mgr['id_user']) > 0){
+                Flasher::setFlash('Berhasil','diubah','success','fa fa-check');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }else{
+                Flasher::setFlash('Gagal','diubah','danger','icon-close');
+                header('Location: ' . BASEURL . 'Manager');
+                exit;
+            }
+        }
     }
 }

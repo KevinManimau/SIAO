@@ -29,6 +29,9 @@
   <!-- Custom Style-->
   <link href="<?=BASEURL?>assets/css/app-style.css" rel="stylesheet"/>
   <link rel="stylesheet" href="<?=BASEURL?>assets/plugins/apexcharts/apexcharts.css">
+  <!--Ion Range Slider-->
+  <link href="<?=BASEURL?>assets/plugins/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css"/>
+  <link href="<?=BASEURL?>assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" type="text/css"/>
  
   
   
@@ -36,17 +39,7 @@
 
 <body>
 
-<!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming">
-     <div class="loader-wrapper-outer">
-       <div class="loader-wrapper-inner" >
-         <div class="loader">
-         </div>        
-        </div>
-      </div>
-      
-    </div>
-   <!-- end loader -->
+
 
 <!-- Start wrapper-->
  <div id="wrapper">

@@ -18,6 +18,12 @@ class Cabang_model {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+    public function getCabangWithKey($key){
+        mysqli_escape_string("'",$key);
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE virtual_key=:key');
+        $this->db->bind('key', $key);
+        return $this->db->single();
+    }
    
     public function tambahDataCabang($data){
         if($data['stat']=="kc"){
@@ -30,28 +36,14 @@ class Cabang_model {
             exit;
         }
 
-        if($data['jabatan'] == 'ass'){
-            $jabatan='ASSISTEN';
-        }elseif($data['jabatan'] == 'ao'){
-            $jabatan='AO';
-        }
-        elseif($data['jabatan'] == 'ASSISTEN'){
-        $jabatan='ASSISTEN';
-        }elseif($data['jabatan'] == 'AO'){
-        $jabatan='AO';
-        }else{
-            Flasher::setFlash('Gagal','ditambahkan','danger','fa fa-check');
-            header('Location:'.BASEURL.'Cabang');
-            exit;
-        }
        
-        $query = "INSERT INTO ". $this->table ." (nrp,nama_cab,status,jabatan_cab) VALUES(:nrp, :nama, :stat, :jabatan)";
+        $query = "INSERT INTO ". $this->table ." (nrp,nama_cab,status) VALUES(:nrp, :nama, :stat )";
         
         $this->db->query($query);
         $this->db->bind('nrp',$data['nrp']);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('stat', $radio);
-        $this->db->bind('jabatan',$jabatan);
+        // $this->db->bind('delstatus',0);
 
         $this->db->execute();
 
@@ -75,23 +67,10 @@ class Cabang_model {
         }else{
             header('Location:'.BASEURL.'cabang');
         }
-
-        if($data['jabatan'] == 'ass'){
-            $jabatan='ASSISTEN';
-        }elseif($data['jabatan'] == 'ao'){
-            $jabatan='AO';
-        }elseif($data['jabatan'] == 'ASSISTEN'){
-            $jabatan='ASSISTEN';
-        }elseif($data['jabatan'] == 'AO'){
-            $jabatan='AO';
-        }else{
-            header('Location:'.BASEURL.'cabang');
-        }
        
         $query = "UPDATE $this->table SET `nrp`=:nrp,
                                           `nama_cab`=:nama,
-                                          `status`=:stat,
-                                          `jabatan_cab`=:jabatan
+                                          `status`=:stat
                                         WHERE id=:id";
         
         $this->db->query($query);
@@ -99,7 +78,6 @@ class Cabang_model {
         $this->db->bind('nrp',$data['nrp']);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('stat', $radio);
-        $this->db->bind('jabatan',$jabatan);
 
         $this->db->execute();
 
